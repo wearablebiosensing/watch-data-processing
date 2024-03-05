@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Display</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mt-5">Data Overview</h1>
+        <div class="card mt-5">
+            <div class="card-body">
+                <p><strong>Date and Time:</strong> {{ date_time }}</p>
+                <p><strong>Percentage:</strong> {{ percentage }}%</p>
+                {% if percentage == 100 %}
+                <p><strong style="font-size: 5em;">😁</strong></p>
+                {% elif percentage >= 90 and percentage < 99 %}
+                <p><strong style="font-size: 5em;">😃</strong></p>
+                {% elif percentage >= 80 and percentage < 89 %}
+                <p><strong style="font-size: 5em;">😆</strong></p>
+                {% elif percentage >= 70 and percentage < 79 %}
+                <p><strong style="font-size: 5em;">😉</strong></p>
+                {% elif percentage >= 60 and percentage < 69 %}
+                <p><strong style="font-size: 5em;">😒</strong></p>
+                {% elif percentage >= 50 and percentage < 59 %}
+                <p><strong style="font-size: 5em;">😕</strong></p>
+                {% elif percentage >= 40 and percentage < 49 %}
+                <p><strong style="font-size: 5em;">😘</strong></p>
+                {% elif percentage >= 30 and percentage < 39 %}
+                <p><strong style="font-size: 5em;">😡</strong></p>
+                {% elif percentage >= 20 and percentage < 29 %}
+                <p><strong style="font-size: 5em;">😤</strong></p>
+                {% elif percentage >= 10 and percentage < 19 %}
+                <p><strong style="font-size: 5em;">😨</strong></p>
+                {% elif percentage >= 0 and percentage < 9 %}
+                <p><strong style="font-size: 5em;">😱</strong></p>
+                {% else %}
+                <p><strong style="font-size: 5em;">😵</strong></p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <!-- Add Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>
