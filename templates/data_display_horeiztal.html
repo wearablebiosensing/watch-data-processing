@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Display</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mt-5">Data Overview</h1>
+        <div class="card mt-5">
+            <div class="card-body">
+                <p><strong>Date and Time:</strong> {{ date_time }}</p>
+                <p><strong>Hyperactive percentage:</strong> {{ percentage }}%</p>
+                <div class="progress vertical">
+                    <div class="progress-bar" role="progressbar" style="height: {{ percentage }}%;" aria-valuenow="{{ percentage }}" aria-valuemin="0" aria-valuemax="100">{{ percentage }}%</div>
+                </div>
+                <style>
+                    .progress.vertical {
+                        position: relative;
+                        width: 60px;
+                        height: 40vh;
+                        display: inline-block;
+                        margin: 20px;
+                    }
+                    .progress.vertical .progress-bar {
+                        width: 100%;
+                        position: absolute;
+                        bottom: 0;
+                    }
+                </style>
+            </div>
+        </div>
+    </div>
+    <!-- Add Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>
