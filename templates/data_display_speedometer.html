@@ -1,0 +1,50 @@
+// still needs work for working model
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Display</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mt-5">Data Overview</h1>
+        <div class="card mt-5">
+            <div class="card-body">
+                <p><strong>Date and Time:</strong> {{ date_time }}</p>
+                <p><strong>Percentage:</strong> {{ percentage }}%</p>
+                <svg width="200" height="200" viewBox="0 0 200 200">
+                    <!-- Outer circle -->
+                    <path d="M 20 100 A 80 80 0 0 1 180 100" stroke="black" stroke-width="3" fill="none" />
+                    <!-- Scale markings -->
+                    <line x1="100" y1="20" x2="100" y2="30" stroke="black" stroke-width="2"/>
+                    <line x1="20" y1="100" x2="30" y2="100" stroke="black" stroke-width="2"/>
+                    <line x1="180" y1="100" x2="170" y2="100" stroke="black" stroke-width="2"/>
+                    <!-- Needle -->
+                    <line id="needle" x1="100" y1="100" x2="100" y2="40" stroke="red" stroke-width="2"/>
+                    <!-- Text for speedometer reading -->
+                    <text x="95" y="115" font-family="Arial" font-size="10" fill="black">0</text>
+                    <text x="10" y="105" font-family="Arial" font-size="10" fill="black">Min</text>
+                    <text x="170" y="105" font-family="Arial" font-size="10" fill="black">Max</text>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <!-- Add Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script>
+    function updateSpeedometer(speed) {
+        const maxSpeed = 100; // Assuming 100 is the max speed
+        const angle = (speed / maxSpeed) * 180 - 90; // Convert speed to angle, -90 to adjust for SVG coordinate system
+        const needle = document.getElementById('needle'); // Get the needle element
+        needle.setAttribute('transform', `rotate(${angle}, 100, 100)`); // Rotate the needle around the center (100, 100)
+    }
+    
+    // Example usage
+    // This should be called after the page is fully loaded, you might want to use window.onload or similar event
+    updateSpeedometer(50); // Update this with real speed data
+    </script>
+</body>
+</html>
